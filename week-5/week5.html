@@ -1,0 +1,59 @@
+<html>
+    <body bgcolor="lightblue" align="center">
+        <form>
+            <h1>EMAIL REGISTRATION </h1>
+           username:  <input type="text"  id="p1" placeholder="enter your name"> <br>
+           email:     <input type="email"  id="p2" placeholder="enter your email" > <br>
+        mobile number:<input type="number" id="p3" placeholder="enter your number" > <br>
+        <input type="button" value="submit" onclick="return validate()">
+</form>
+<script>
+    function validate()
+    {
+    var un=document.getElementById("p1");
+    var uname=un.value;
+     var mail=document.getElementById("p2");
+      var email=mail.value;
+     var mn=document.getElementById("p3");
+     var mobile=mn.value;
+     var unre=/^[a-Z A-Z]+[0-9a-Za-z._]*$/;
+     var ere=/^[a-Za-Z]+([\.-]?\w+)*@\w+([\._]?\w+)* (\.\w{2,3})+$/;
+     var mre=/^[6-9][0-9]{9}$/;
+     if(unre.test(uname))
+     {
+        if(ere.test(email))
+        {
+           if(mre.test(mobile))
+            {
+               alert("Registered successfully!!");
+               return true;
+            }
+            else
+            {
+               return error(mn);
+            }
+        }
+        else
+        {
+              return error(mail);
+        }
+    }
+     else
+     {
+        return error(un);
+     }
+  }
+function error(ele)
+{
+    alert("Inavaild !!!");
+    ele.style.border="3px solid red";
+    ele.value="";
+    ele.placeholder="Invalid";
+    ele.focus();
+    return false;
+}
+ </script>
+</body>
+<p aligh="right">PALREDDY SAHITHI</p>
+<p aligh="right">24881A1248</p>
+</html>
